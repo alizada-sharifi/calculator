@@ -1,0 +1,198 @@
+:root {
+  --bg: #2c3e50;
+  --display-bg: linear-gradient(145deg, #34495e, #1abc9c);
+  --display-shadow: 7px 7px 20px rgba(10, 20, 30, 0.5),
+    -7px -7px 20px rgba(10, 20, 30, 0.2);
+  --color: #18222b;
+  --btns-color: linear-gradient(145deg, #2980b9, #8e44ad);
+  --btns-hover-color: #1abc9c;
+  --container-bg: #34495e;
+  --btn-shadow: 7px 7px 20px rgba(10, 20, 30, 0.5),
+    -7px -7px 20px rgba(10, 20, 30, 0.2);
+  --btn-hover-shadow: inset 7px 7px 20px rgba(10, 20, 30, 0.5),
+    inset -7px -7px 20px rgba(10, 20, 30, 0.2);
+}
+:root[data-theme="dark"] {
+  --bg: #1c2b36;
+  --display-bg: linear-gradient(145deg, #2c3e50, #34495e);
+  --display-shadow: 7px 7px 20px rgba(0, 0, 0, 0.5),
+    -7px -7px 20px rgba(0, 0, 0, 0.3);
+  --btns-color: linear-gradient(145deg, #2980b9, #8e44ad);
+  --btns-hover-color: #16a085;
+  --color: #fff;
+  --container-bg: #2c3e50;
+  --btn-shadow: 7px 7px 20px rgba(0, 0, 0, 0.5),
+    -7px -7px 20px rgba(0, 0, 0, 0.3);
+  --btn-hover-shadow: inset 7px 7px 20px rgba(0, 0, 0, 0.5),
+    inset -7px -7px 20px rgba(0, 0, 0, 0.3);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+/* ======== custom scroll bar ======== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: lightgray;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* ========= toggle btn ========= */
+.switch {
+  width: 60px;
+  height: 34px;
+}
+.slider {
+  cursor: pointer;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: #16a085;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #16a085;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+.toggle-btn {
+  gap: 5px;
+  width: 110px;
+  top: 20px;
+  right: 100px;
+  border-radius: 50px;
+  padding: 0px 10px;
+}
+.calculator {
+  width: 500px;
+  background-color: var(--container-bg);
+  border-radius: 28px;
+}
+.display {
+  height: 8vw;
+  width: 30vw;
+  background: var(--display-bg);
+  box-shadow: var(--display-shadow);
+  border-radius: 32px;
+  margin: 2vw auto 1vw;
+  padding: 0 30px 0;
+}
+.display h1 {
+  color: var(--color);
+  font-size: 45px;
+  font-weight: 500;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.calculator-buttons {
+  border-radius: 28px;
+  padding: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+  background-color: var(--container-bg);
+}
+button {
+  background: var(--btns-color);
+  box-shadow: var(--btn-shadow);
+  width: 3.7vw;
+  height: 3.7vw;
+  color: #1d2934;
+  line-height: 53px;
+  margin: 10px;
+  font-size: 2vw;
+  cursor: pointer;
+  margin: 1vw auto 1vw;
+}
+#delete {
+  font-size: 15px;
+}
+button:hover {
+  box-shadow: var(--btn-hover-shadow);
+}
+button:active {
+  opacity: 1;
+  background-color: #d1ced1;
+  box-shadow: 0px 0px 18px #888888 inset;
+}
+@media screen and (max-width: 900px) {
+  .calculator {
+    width: 40vw;
+  }
+  button {
+    width: 6vw;
+    height: 6vw;
+    font-size: 2.5vw;
+  }
+  .display {
+    width: 34vw;
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  .calculator {
+    width: 50vw;
+  }
+  button {
+    font-size: 3vw;
+  }
+  .display {
+    width: 41vw;
+    height: 10vw;
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .calculator {
+    width: 300px;
+  }
+  button {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    margin: 6px auto 6px;
+  }
+  .display {
+    width: 240px;
+    height: 60px;
+    font-size: 15px;
+    margin: 10px auto 10px;
+  }
+}
